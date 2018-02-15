@@ -7,6 +7,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+import { AgmCoreModule } from '@agm/core';
+import { Geolocation } from '@ionic-native/geolocation';
+
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -14,7 +19,10 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp), 
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCF3aH2Bk1v1-AOIaeDWFXzfsNjK0dh558'
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -23,7 +31,7 @@ import { HomePage } from '../pages/home/home';
   ],
   providers: [
     StatusBar,
-    SplashScreen,
+    SplashScreen,Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
